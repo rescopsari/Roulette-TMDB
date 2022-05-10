@@ -57,8 +57,9 @@
                                         <ul class="genres">
                                             <!-- CATEGORIE DU FILM / SERIE-->
                                             <li id="categorie-of-program2">Crime</li>
-                                            <button id="num_btn_like" class="">met un like</button>
-                                            <button id="num_btn_dislike"class="">met un dislike </button>
+                                            <script src="https://use.fontawesome.com/fe459689b4.js"></script>
+                                            <button class="btn" id="green"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></button>
+                                            <button class="btn" id="red"><i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i></button>
                                         </ul>
                                     </div>
                                 </div>
@@ -137,6 +138,23 @@
             document.getElementById("categorie-of-program2").innerHTML = categorie;
 
         }
+        var btn1 = document.querySelector('#green');
+        var btn2 = document.querySelector('#red');
+
+        btn1.addEventListener('click', function() { 
+            if (btn2.classList.contains('red')) {
+            btn2.classList.remove('red');
+            } 
+        this.classList.toggle('green');   
+        });
+
+        btn2.addEventListener('click', function() {
+            if (btn1.classList.contains('green')) {
+            btn1.classList.remove('green');
+            } 
+        this.classList.toggle('red');
+        });
+
     </script>
 </body>
 

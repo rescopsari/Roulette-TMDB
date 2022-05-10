@@ -395,3 +395,25 @@ div.section div.info p {
     line-height: 22px;
     letter-spacing: .2px
 }
+body{
+    margin: 40px;
+}
+  
+  button{
+    cursor: pointer;
+    outline: 0;
+    color: #AAA;
+  
+}
+  
+  .btn:focus {
+    outline: none;
+}
+  
+  .green{
+    color: green;
+}
+  
+  .red{
+    color: red;
+}
