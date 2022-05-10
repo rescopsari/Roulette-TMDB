@@ -49,7 +49,7 @@
                                             <!-- TITRE DU FILM / SERIE-->
                                         </a>
                                         <div class="sub-title">
-                                            <div class="meta"><a id="year-of-program2">2018</a> - <a id="time-of-program2">87</a> minutes </div>
+                                            <div class="meta"><a id="year-of-program2">2018</a> - <a id="time-of-program2">87</a> minutes | <a id="number_like_percent">43</a> % des personnes ont aimé </id></div>
                                             <!-- ANNEE ET DUREE DU FILM / SERIE-->
                                         </div>
                                         <p id="resume-of-program2">Dans ce film inspiré de faits réels, une adolescente de Floride se fait kidnapper puis parvient à fuir, mais peine à convaincre sa famille et la police de son calvaire.</p>
@@ -57,10 +57,12 @@
                                         <ul class="genres">
                                             <!-- CATEGORIE DU FILM / SERIE-->
                                             <li id="categorie-of-program2">Crime</li>
-                                            <script src="https://use.fontawesome.com/fe459689b4.js"></script>
-                                            <button class="btn" id="green"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></button>
-                                            <button class="btn" id="red"><i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i></button>
                                         </ul>
+                                        <script src="https://use.fontawesome.com/fe459689b4.js"></script>
+                                        <div>
+                                                <button class="btn" id="green"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></button>
+                                                <button class="btn" id="red"><i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -100,8 +102,10 @@
             r_time = "589"
             r_resume = "blblblblblblblbl"
             r_categorie = "DARK"
+            r_like = 90
+            r_dislike = 10
 
-            Display(r_poster, r_title, r_year, r_time, r_resume, r_categorie)
+            Display(r_poster, r_title, r_year, r_time, r_resume, r_categorie, r_like, r_dislike)
         }
 
 
@@ -123,19 +127,24 @@
             r_time = "2"
             r_resume = "C'est l'histroiujzefnqsidfjqsd"
             r_categorie = "DSafg"
+            r_like = 10
+            r_dislike = 90
 
-            Display(r_poster, r_title, r_year, r_time, r_resume, r_categorie)
+            Display(r_poster, r_title, r_year, r_time, r_resume, r_categorie, r_like, r_dislike)
 
         }
 
-        function Display(poster, title, year, time, resume, categorie) {
+        function Display(poster, title, year, time, resume, categorie, like, dislike) {
 
+            const percent_like = (like / (like + dislike)) * 100
+            
             document.getElementById("poster-of-program").style.backgroundImage = poster;
             document.getElementById("title-of-program2").innerHTML = title;
             document.getElementById("year-of-program2").innerHTML = year;
             document.getElementById("time-of-program2").innerHTML = time;
             document.getElementById("resume-of-program2").innerHTML = resume;
             document.getElementById("categorie-of-program2").innerHTML = categorie;
+            document.getElementById("number_like_percent").innerHTML = percent_like;
 
         }
         var btn1 = document.querySelector('#green');
@@ -144,6 +153,7 @@
         btn1.addEventListener('click', function() { 
             if (btn2.classList.contains('red')) {
             btn2.classList.remove('red');
+            
             } 
         this.classList.toggle('green');   
         });
