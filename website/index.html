@@ -10,7 +10,6 @@
 <body>
     <header id="header">
         <div class="inner">
-            <h1>Roulette TMDB</h1>
             <div id="mobile-close"><span class="op">Fermer</span></div>
         </div>
     </header>
@@ -27,7 +26,7 @@
                         <div class="filters">
                             <div class="radios">
                                 <div>
-                                    <input type="radio" name="roulette-filter-type" id="roulette-filter-type-movies" value="movies" checked="checked">
+                                    <input type="radio" name="roulette-filter-type" id="roulette-filter-type-movies" value="movies" checked>
                                     <label for="roulette-filter-type-movies">Films</label>
                                 </div>
                                 <div>
@@ -40,37 +39,24 @@
                         <div class="results with-result" id="roulette-results">
                             <div class="title">
                                 <a class="item-init item poster">
-                                    <div class="poster" style="background-image: url('https://c.flikshost.com/81447496/posters/AAAABbwMLewacJ6Yl0dD_x_ddwIaLc8ktkrQNJcRn_93Q7mUruIg5tCDYwy3dknx7GVW5H7_30Sg-FQbwBb6A0De12wBiw.jpg')"></div>
+                                    <div class="poster" id="poster-of-program" style="background-image: url('https://c.flikshost.com/81447496/posters/AAAABbwMLewacJ6Yl0dD_x_ddwIaLc8ktkrQNJcRn_93Q7mUruIg5tCDYwy3dknx7GVW5H7_30Sg-FQbwBb6A0De12wBiw.jpg')"></div>
                                     <!-- IMAGE DU FILM / SERIE-->
                                 </a>
-                                <div class="info-narrow">
-                                    <a class="item-init item roulette">
-                                        <h2>Believe Me : Enlevée par un tueur</h2>
-                                        <!-- TITRE DU FILM / SERIE-->
-                                    </a>
-                                    <div class="sub-title">
-                                        <div class="meta">2018 - 87 minutes </div>
-                                        <!-- ANNEE ET DUREE DU FILM / SERIE-->
-                                    </div>
-                                    <p>Dans ce film inspiré de faits réels, une adolescente de Floride se fait kidnapper puis parvient à fuir, mais peine à convaincre sa famille et la police de son calvaire.</p>
-                                    <!-- RESUME DU FILM / SERIE-->
-                                    <ul class="genres">
-                                        <!-- CATEGORIE DU FILM / SERIE-->
-                                        <li>Crime</li>
-                                        <li>Drame</li>
-                                    </ul>
-                                </div>
                                 <div class="info">
                                     <div class="inner">
                                         <a class="item-init item roulette">
-                                            <h2>Believe Me : Enlevée par un tueur</h2>
+                                            <h2 id="title-of-program2">Believe Me : Enlevée par un tueur</h2>
                                             <!-- TITRE DU FILM / SERIE-->
                                         </a>
-                                        <p>Dans ce film inspiré de faits réels, une adolescente de Floride se fait kidnapper puis parvient à fuir, mais peine à convaincre sa famille et la police de son calvaire.</p>
+                                        <div class="sub-title">
+                                            <div class="meta"><a id="year-of-program2">2018</a> - <a id="time-of-program2">87</a> minutes </div>
+                                            <!-- ANNEE ET DUREE DU FILM / SERIE-->
+                                        </div>
+                                        <p id="resume-of-program2">Dans ce film inspiré de faits réels, une adolescente de Floride se fait kidnapper puis parvient à fuir, mais peine à convaincre sa famille et la police de son calvaire.</p>
+                                        <!-- RESUME DU FILM / SERIE-->
                                         <ul class="genres">
                                             <!-- CATEGORIE DU FILM / SERIE-->
-                                            <li>Crime</li>
-                                            <li>Drame</li>
+                                            <li id="categorie-of-program2">Crime</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -79,113 +65,77 @@
                     </div>
                 </div>
             </div>
-            <div class="secondary">
-                <div class="sticky-widget">
-                    <h3>Les meilleurs VPN pour Netflix</h3>
-                    <ul class="vpn-list">
-                        <li>
-                            <a>
-                                <img title="Surfshark" class="logo" />
-                                <div>
-                                    <span>Économisez 82%</span>
-                                    <span>+2 mois gratuits</span>
-                                    <span class="cta">Visiter le site &raquo;</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                <img title="NordVPN" class="logo" />
-                                <div>
-                                    <span>Économisez 67%</span>
-                                    <span>+mois gratuits</span>
-                                    <span class="cta">Visiter le site &raquo;</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                <img title="ExpressVPN" class="logo" />
-                                <div>
-                                    <span>Économisez 49%</span>
-                                    <span>+3 mois gratuits</span>
-                                    <span class="cta">Visiter le site &raquo;</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </main>
-    <footer>
-        <section class="about">
-            <h3>Qu'est-ce que Roulette TMDB ?</h3>
-            <p>
-                Parcourir les catalogues peut être une expérience frustrante. Il est difficile de savoir ce qui est bien et il est très facile de perdre beaucoup de temps à chercher quelque chose à regarder. Roulette TMDB résoud ce problème en offrant une meilleure façon
-                de parcourir et découvrir les listes complètes des films et séries disponibles France. Pour faire court : c'est un moteur de recherche de film & serie amélioré. <br /><br /> Roulette TMDB n'a aucune affiliation avec The
-                Movie DataBase.
-                <br /><br />
-            </p>
-            <ul class="links">
-                <li><a>Les meilleurs VPN</a></li>
-                <li><a>A propos de Roulette TMDB</a></li>
-                <li><a>Politique de confidentialité</a></li>
-                <li><a>Plan du site</a></li>
-                <li><a>Suivez-nous sur Twitter</a></li>
-            </ul>
-        </section>
-        <section>
-            <ul>
-                <li><strong>Films</strong></li>
-                <li><a>Nouveaux films</a></li>
-                <li><a>Les meilleurs films d’action</a></li>
-                <li><a>Les meilleurs films animation</a></li>
-                <li><a>Les meilleurs films d’aventures</a></li>
-                <li><a>Les meilleures comédies</a></li>
-                <li><a>Les meilleurs stand-up</a></li>
-                <li><a>Les meilleurs films criminels</a></li>
-                <li><a>Les meilleurs documentaires</a></li>
-                <li><a>Les meilleurs films dramatiques</a></li>
-                <li><a>Les meilleurs films familiaux</a></li>
-                <li><a>Les meilleurs films fantasy</a></li>
-                <li><a>Les meilleurs films français</a></li>
-                <li><a>Les meilleurs films de guerre</a></li>
-                <li><a>Les meilleurs films historiques</a></li>
-                <li><a>Les meilleurs films d'horreur</a></li>
-                <li><a>Les meilleurs films musicaux</a></li>
-                <li><a>Les meilleurs films mystères</a></li>
-                <li><a>Les meilleurs films romantiques</a></li>
-                <li><a>Les meilleurs films science-fiction</a></li>
-                <li><a>Les meilleurs films thriller</a></li>
-                <li><a>Les meilleurs films western</a></li>
-            </ul>
-            <ul>
-                <li><strong>Séries</strong></li>
-                <li><a>Les meilleures séries action & aventure</a></li>
-                <li><a>Les meilleures séries d'animation</a></li>
-                <li><a>Les meilleures séries comiques</a></li>
-                <li><a>Les meilleures séries de stand-up</a></li>
-                <li><a>Les meilleures séries policières</a></li>
-                <li><a>Les meilleures séries documentaires</a></li>
-                <li><a>Les meilleures séries dramatiques</a></li>
-                <li><a>Les meilleures séries famille & enfant</a></li>
-                <li><a>Les meilleures séries historiques</a></li>
-                <li><a>Les meilleures séries d'horreur</a></li>
-                <li><a>Les meilleures mini-séries</a></li>
-                <li><a>Les meilleures séries musicales</a></li>
-                <li><a>Les meilleures télé-réalité</a></li>
-                <li><a>Les meilleures séries science-fiction & fantasy</a></li>
-                <li><a>Les meilleures séries thriller</a></li>
-                <li><a>Les meilleures séries western</a></li>
-            </ul>
-        </section>
-        <section>
-            <p class="copyright">&copy; Copyright 2022 Roulette TMDB. All Rights Reserved.</p>
-        </section>
-    </footer>
     <div id="snackbar"></div>
     <div id="to-the-top" class="op"></div>
+    <script>
+        const btn = document.getElementById('roulette-btn');
+
+        btn.addEventListener('click', function handleClick() {
+            console.log("----------------------------------------")
+            console.log("You have click on the button")
+            if (document.getElementById('roulette-filter-type-movies').checked) {
+                console.log("movies was checked")
+                RandomMovie()
+            } else if (document.getElementById('roulette-filter-type-series').checked) {
+                console.log("series was checked")
+                RandomSerie()
+            }
+        });
+
+
+        function RandomMovie() {
+
+
+            //appel api
+
+
+            r_poster = "url(images/img.jpg)"
+            r_title = "test"
+            r_year = "0000"
+            r_time = "589"
+            r_resume = "blblblblblblblbl"
+            r_categorie = "DARK"
+
+            Display(r_poster, r_title, r_year, r_time, r_resume, r_categorie)
+        }
+
+
+        function RandomSerie() {
+
+
+            //appel api
+
+            const userAction = async() => {
+                const response = await fetch('IP:PORT/movies.json');
+                const myJson = await response.json(); //extract JSON from the http response
+                // do something with myJson
+            }
+
+
+            r_poster = "url(images/img.jpg)"
+            r_title = "C EST UN TITRE"
+            r_year = "488548"
+            r_time = "2"
+            r_resume = "C'est l'histroiujzefnqsidfjqsd"
+            r_categorie = "DSafg"
+
+            Display(r_poster, r_title, r_year, r_time, r_resume, r_categorie)
+
+        }
+
+        function Display(poster, title, year, time, resume, categorie) {
+
+            document.getElementById("poster-of-program").style.backgroundImage = poster;
+            document.getElementById("title-of-program2").innerHTML = title;
+            document.getElementById("year-of-program2").innerHTML = year;
+            document.getElementById("time-of-program2").innerHTML = time;
+            document.getElementById("resume-of-program2").innerHTML = resume;
+            document.getElementById("categorie-of-program2").innerHTML = categorie;
+
+        }
+    </script>
 </body>
 
 </html>
