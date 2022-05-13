@@ -5,9 +5,14 @@
     <title>Roulette TMDB</title>
     <meta name="description" content="Faites tourner la roue et obtenez de nouvelles idées de films et de séries à regarder.">
     <link href="main.css" rel="stylesheet">
+
+    <!-- <script src="random.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="https://use.fontawesome.com/fe459689b4.js"></script>
 </head>
 
-<body>
+<body onload="javascript:RandomMovie()">
+
     <header id="header">
         <div class="inner">
             <div id="mobile-close"><span class="op">Fermer</span></div>
@@ -49,7 +54,8 @@
                                             <!-- TITRE DU FILM / SERIE-->
                                         </a>
                                         <div class="sub-title">
-                                            <div class="meta"><a id="year-of-program2">2018</a> - <a id="time-of-program2">87</a> minutes | <a id="number_like_percent">43</a> % des personnes ont aimé </id></div>
+                                            <div class="meta"><a id="year-of-program2">2018</a> - <a id="time-of-program2">87</a> minutes | <a id="number_like_people">43</a> personnes ont aimé </id>
+                                            </div>
                                             <!-- ANNEE ET DUREE DU FILM / SERIE-->
                                         </div>
                                         <p id="resume-of-program2">Dans ce film inspiré de faits réels, une adolescente de Floride se fait kidnapper puis parvient à fuir, mais peine à convaincre sa famille et la police de son calvaire.</p>
@@ -58,10 +64,9 @@
                                             <!-- CATEGORIE DU FILM / SERIE-->
                                             <li id="categorie-of-program2">Crime</li>
                                         </ul>
-                                        <script src="https://use.fontawesome.com/fe459689b4.js"></script>
                                         <div>
-                                                <button class="btn" id="green"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></button>
-                                                <button class="btn" id="red"><i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i></button>
+                                            <button class="btn" id="green"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></button>
+                                            <button class="btn" id="red"><i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -75,96 +80,87 @@
     <div id="snackbar"></div>
     <div id="to-the-top" class="op"></div>
     <script>
+        // Les boutons de la roulette
+
         const btn = document.getElementById('roulette-btn');
 
         btn.addEventListener('click', function handleClick() {
-            console.log("----------------------------------------")
-            console.log("You have click on the button")
             if (document.getElementById('roulette-filter-type-movies').checked) {
-                console.log("movies was checked")
                 RandomMovie()
             } else if (document.getElementById('roulette-filter-type-series').checked) {
-                console.log("series was checked")
-                RandomSerie()
+                RandomTv()
             }
         });
 
 
+        // Les fonctions de traitement de l'api et preparation a l'ffichage
+
         function RandomMovie() {
 
+            var request = new XMLHttpRequest()
 
-            //appel api
+            request.open('GET', 'http://90.120.40.224:5000/movie', true)
+            request.onload = function() {
+                var data = JSON.parse(this.response)
 
-
-            r_poster = "url(images/img.jpg)"
-            r_title = "test"
-            r_year = "0000"
-            r_time = "589"
-            r_resume = "blblblblblblblbl"
-            r_categorie = "DARK"
-            r_like = 90
-            r_dislike = 10
-
-            Display(r_poster, r_title, r_year, r_time, r_resume, r_categorie, r_like, r_dislike)
-        }
-
-
-        function RandomSerie() {
-
-
-            //appel api
-
-            const userAction = async() => {
-                const response = await fetch('IP:PORT/movies.json');
-                const myJson = await response.json(); //extract JSON from the http response
-                // do something with myJson
+                if (request.status >= 200 && request.status < 400) {
+                    document.getElementById('poster-of-program').setAttribute("style", "background-image: url(" + data.path_image + ");");
+                    document.getElementById("title-of-program2").innerHTML = data.title;
+                    document.getElementById("year-of-program2").innerHTML = data.year;
+                    document.getElementById("time-of-program2").innerHTML = data.length;
+                    document.getElementById("resume-of-program2").innerHTML = data.summary;
+                    document.getElementById("categorie-of-program2").innerHTML = data.category;
+                    document.getElementById("number_like_people").innerHTML = data.nb_likes;
+                } else {
+                    console.log('error, maybe server down')
+                }
             }
+            request.send()
+        }
 
+        function RandomTv() {
 
-            r_poster = "url(images/img.jpg)"
-            r_title = "C EST UN TITRE"
-            r_year = "488548"
-            r_time = "2"
-            r_resume = "C'est l'histroiujzefnqsidfjqsd"
-            r_categorie = "DSafg"
-            r_like = 10
-            r_dislike = 90
+            var request = new XMLHttpRequest()
 
-            Display(r_poster, r_title, r_year, r_time, r_resume, r_categorie, r_like, r_dislike)
+            request.open('GET', 'http://90.120.40.224:5000/tv', true)
+            request.onload = function() {
+                var data = JSON.parse(this.response)
+
+                if (request.status >= 200 && request.status < 400) {
+                    document.getElementById('poster-of-program').setAttribute("style", "background-image: url(" + data.path_image + ");");
+                    document.getElementById("title-of-program2").innerHTML = data.title;
+                    document.getElementById("year-of-program2").innerHTML = data.year;
+                    document.getElementById("time-of-program2").innerHTML = data.length;
+                    document.getElementById("resume-of-program2").innerHTML = data.summary;
+                    document.getElementById("categorie-of-program2").innerHTML = data.category;
+                    document.getElementById("number_like_people").innerHTML = data.nb_likes;
+                } else {
+                    console.log('error, maybe server down')
+                }
+            }
+            request.send()
 
         }
 
-        function Display(poster, title, year, time, resume, categorie, like, dislike) {
 
-            const percent_like = (like / (like + dislike)) * 100
-            
-            document.getElementById("poster-of-program").style.backgroundImage = poster;
-            document.getElementById("title-of-program2").innerHTML = title;
-            document.getElementById("year-of-program2").innerHTML = year;
-            document.getElementById("time-of-program2").innerHTML = time;
-            document.getElementById("resume-of-program2").innerHTML = resume;
-            document.getElementById("categorie-of-program2").innerHTML = categorie;
-            document.getElementById("number_like_percent").innerHTML = percent_like;
+        // Les boutons pour le like et dislike
 
-        }
         var btn1 = document.querySelector('#green');
         var btn2 = document.querySelector('#red');
 
-        btn1.addEventListener('click', function() { 
+        btn1.addEventListener('click', function() {
             if (btn2.classList.contains('red')) {
-            btn2.classList.remove('red');
-            
-            } 
-        this.classList.toggle('green');   
+                btn2.classList.remove('red');
+            }
+            this.classList.toggle('green');
         });
 
         btn2.addEventListener('click', function() {
             if (btn1.classList.contains('green')) {
-            btn1.classList.remove('green');
-            } 
-        this.classList.toggle('red');
+                btn1.classList.remove('green');
+            }
+            this.classList.toggle('red');
         });
-
     </script>
 </body>
 
